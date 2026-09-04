@@ -1,19 +1,70 @@
 # DependencyWatch
 
-Detect dependency changes between two requirement snapshots.
+> Compare dependency snapshots and make package changes easy to detect.
 
-## API
+[![Python](https://img.shields.io/badge/python-3.10%2B-3776AB?style=flat-square)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-MIT-111111?style=flat-square)](LICENSE)
+
+DependencyWatch is a lightweight Python utility for comparing two dependency snapshots and identifying what was **added, removed or changed**.
+
+## Features
+
+- Compare two requirement snapshots
+- Detect added dependencies
+- Detect removed dependencies
+- Detect changed dependency versions
+- Small, deterministic API
+- No runtime dependencies
+
+## Installation
+
+```bash
+pip install dependencywatch
+```
+
+## Example
 
 ```python
 from dependencywatch import diff
 
-diff(["requests==2.31"], ["requests==2.32", "httpx==0.27"])
+changes = diff(
+    ["requests==2.31"],
+    ["requests==2.32", "httpx==0.27"],
+)
+
+print(changes)
 ```
 
-Returns added, removed, and changed dependency names.
+The result identifies dependency names whose state changed between the two snapshots.
+
+## Use Cases
+
+- Dependency change checks in CI
+- Release preparation
+- Project auditing
+- Automated update reports
+- Lightweight supply-chain visibility
+
+## Design
+
+```text
+snapshot A ─┐
+            ├── compare ──→ added / removed / changed
+snapshot B ─┘
+```
+
+DependencyWatch only analyzes the supplied snapshots. It does not install packages or modify the environment.
 
 ## Development
 
-`python -m pytest`
+```bash
+python -m pytest
+```
 
-MIT licensed. Built by meduuv. https://guns.lol/meduu
+## License
+
+MIT. See [`LICENSE`](LICENSE).
+
+Built by **Meduuv**.
+
+[More projects](https://github.com/meduuv?tab=repositories) · [guns.lol/meduu](https://guns.lol/meduu)
