@@ -9,12 +9,12 @@ DependencyWatch is a lightweight Python utility for comparing two dependency sna
 
 ## Features
 
-- Compare two requirement snapshots
+- Compare requirement snapshots
 - Detect added dependencies
 - Detect removed dependencies
 - Detect changed dependency versions
 - Small, deterministic API
-- No runtime dependencies
+- Zero runtime dependencies
 
 ## Installation
 
@@ -35,15 +35,13 @@ changes = diff(
 print(changes)
 ```
 
-The result identifies dependency names whose state changed between the two snapshots.
+## Use cases
 
-## Use Cases
-
-- Dependency change checks in CI
+- Dependency checks in CI
 - Release preparation
 - Project auditing
 - Automated update reports
-- Lightweight supply-chain visibility
+- Supply-chain visibility
 
 ## Design
 
@@ -53,7 +51,7 @@ snapshot A ─┐
 snapshot B ─┘
 ```
 
-DependencyWatch only analyzes the supplied snapshots. It does not install packages or modify the environment.
+DependencyWatch only analyzes supplied snapshots. It does not install packages or modify the environment.
 
 ## Development
 
@@ -63,7 +61,9 @@ python -m pytest
 
 ## License
 
-MIT. See [`LICENSE`](LICENSE).
+MIT. See `LICENSE`.
+
+## Author
 
 Built by **Meduuv**.
 
